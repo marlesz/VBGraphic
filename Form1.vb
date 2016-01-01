@@ -518,18 +518,12 @@
             dystB(i) = histB(i) + dystB(i - 1)
 
             LUTR(i) = (255 * dystR(i)) / licz
-            If LUTR(i) < 0 Then LUTR(i) = 0
-            If LUTR(i) > 255 Then LUTR(i) = 255
 
             LUTG(i) = (255 * dystG(i)) / licz
-            If LUTG(i) < 0 Then LUTG(i) = 0
-            If LUTG(i) > 255 Then LUTG(i) = 255
 
             LUTB(i) = (255 * dystB(i)) / licz
-            If LUTB(i) < 0 Then LUTB(i) = 0
-            If LUTB(i) > 255 Then LUTB(i) = 255
 
-            MessageBox.Show(LUTB(i))
+
 
         Next
 
@@ -552,6 +546,49 @@
         Next
 
         'wyświetlenie wyniku
+        PictureBox1.Image = obrazek
+        PictureBox1.Refresh()
+        Form5.Close()
+    End Sub
+
+    Private Sub KompozycjaRGBToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles KompozycjaRGBToolStripMenuItem.Click
+        Form7.ShowDialog()
+    End Sub
+
+    Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
+        Form8.ShowDialog()
+    End Sub
+
+    Public Sub Erozja(ByVal matrixSize As Integer, ByVal obrazek As Bitmap) 'Erozja (filtr minimalny)
+        Dim bitmapa3 As Bitmap
+        bitmapa3 = obrazek.Clone 'stworzenie kopii obrazu
+        Dim kolor As Color
+        Dim nR, nG, nB As Integer
+        Dim filterOffset As Integer = ((matrixSize - 1) / 2)
+
+        Form5.ProgressBar1.Value = 0
+        Form5.ProgressBar1.Maximum = obrazek.Height
+        If Form8.CheckBox1.Checked = False Then Form5.Show()
+
+        'instrukcje przekształcające obraz
+        For offsetY As Integer = filterOffset To obrazek.Height - 1 - filterOffset
+            For offsetX As Integer = filterOffset To obrazek.Width - 1 - filterOffset
+                nR = bitmapa3.GetPixel(offsetX, offsetY).R
+                nG = bitmapa3.GetPixel(offsetX, offsetY).G
+                nB = bitmapa3.GetPixel(offsetX, offsetY).B
+                For filterY As Integer = -filterOffset To filterOffset
+                    For filterX As Integer = -filterOffset To filterOffset
+                        kolor = bitmapa3.GetPixel(offsetX + filterX, offsetY + filterY)
+                        If kolor.R < nR Then nR = kolor.R
+                        If kolor.G < nG Then nG = kolor.G
+                        If kolor.B < nB Then nB = kolor.B
+                    Next
+                Next
+                kolor = Color.FromArgb(nR, nG, nB)
+                obrazek.SetPixel(offsetX, offsetY, kolor)
+            Next
+            Form5.ProgressBar1.Value += 1
+        Next
         PictureBox1.Image = obrazek
         PictureBox1.Refresh()
         Form5.Close()

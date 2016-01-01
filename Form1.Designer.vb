@@ -27,6 +27,8 @@ Partial Class Form1
         Me.PlikToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OtwórzToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ZapiszToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NarzędziaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.KompozycjaRGBToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button13 = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
@@ -49,6 +51,7 @@ Partial Class Form1
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.Button14 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -58,7 +61,7 @@ Partial Class Form1
         'MenuStrip1
         '
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PlikToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PlikToolStripMenuItem, Me.NarzędziaToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(0)
@@ -85,10 +88,24 @@ Partial Class Form1
         Me.ZapiszToolStripMenuItem.Size = New System.Drawing.Size(132, 26)
         Me.ZapiszToolStripMenuItem.Text = "Zapisz"
         '
+        'NarzędziaToolStripMenuItem
+        '
+        Me.NarzędziaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KompozycjaRGBToolStripMenuItem})
+        Me.NarzędziaToolStripMenuItem.Name = "NarzędziaToolStripMenuItem"
+        Me.NarzędziaToolStripMenuItem.Size = New System.Drawing.Size(88, 24)
+        Me.NarzędziaToolStripMenuItem.Text = "Narzędzia"
+        '
+        'KompozycjaRGBToolStripMenuItem
+        '
+        Me.KompozycjaRGBToolStripMenuItem.Name = "KompozycjaRGBToolStripMenuItem"
+        Me.KompozycjaRGBToolStripMenuItem.Size = New System.Drawing.Size(198, 26)
+        Me.KompozycjaRGBToolStripMenuItem.Text = "Kompozycja RGB"
+        '
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.OldLace
         Me.GroupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.GroupBox1.Controls.Add(Me.Button14)
         Me.GroupBox1.Controls.Add(Me.Button13)
         Me.GroupBox1.Controls.Add(Me.Button12)
         Me.GroupBox1.Controls.Add(Me.Button11)
@@ -327,6 +344,17 @@ Partial Class Form1
         Me.Panel1.Size = New System.Drawing.Size(861, 561)
         Me.Panel1.TabIndex = 3
         '
+        'Button14
+        '
+        Me.Button14.BackColor = System.Drawing.Color.Black
+        Me.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button14.Location = New System.Drawing.Point(50, 258)
+        Me.Button14.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(33, 31)
+        Me.Button14.TabIndex = 17
+        Me.Button14.UseVisualStyleBackColor = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -377,4 +405,7 @@ Partial Class Form1
     Friend WithEvents Button11 As Button
     Friend WithEvents Button12 As Button
     Friend WithEvents Button13 As Button
+    Friend WithEvents NarzędziaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents KompozycjaRGBToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Button14 As Button
 End Class
