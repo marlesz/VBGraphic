@@ -564,35 +564,71 @@
         bitmapa3 = obrazek.Clone 'stworzenie kopii obrazu
         Dim kolor As Color
         Dim nR, nG, nB As Integer
-        Dim filterOffset As Integer = ((matrixSize - 1) / 2)
+        Dim filterOffset As Integer = Int((matrixSize) / 2)
 
         Form5.ProgressBar1.Value = 0
         Form5.ProgressBar1.Maximum = obrazek.Height
         If Form8.CheckBox1.Checked = False Then Form5.Show()
 
         'instrukcje przekształcające obraz
-        For offsetY As Integer = filterOffset To obrazek.Height - 1 - filterOffset
-            For offsetX As Integer = filterOffset To obrazek.Width - 1 - filterOffset
-                nR = bitmapa3.GetPixel(offsetX, offsetY).R
-                nG = bitmapa3.GetPixel(offsetX, offsetY).G
-                nB = bitmapa3.GetPixel(offsetX, offsetY).B
-                For filterY As Integer = -filterOffset To filterOffset
-                    For filterX As Integer = -filterOffset To filterOffset
-                        kolor = bitmapa3.GetPixel(offsetX + filterX, offsetY + filterY)
-                        If kolor.R < nR Then nR = kolor.R
-                        If kolor.G < nG Then nG = kolor.G
-                        If kolor.B < nB Then nB = kolor.B
+        If matrixSize Mod 2 <> 0 Then
+            For offsetY As Integer = filterOffset To obrazek.Height - 1 - filterOffset
+                For offsetX As Integer = filterOffset To obrazek.Width - 1 - filterOffset
+                    nR = bitmapa3.GetPixel(offsetX, offsetY).R
+                    nG = bitmapa3.GetPixel(offsetX, offsetY).G
+                    nB = bitmapa3.GetPixel(offsetX, offsetY).B
+                    For filterY As Integer = -filterOffset To filterOffset
+                        For filterX As Integer = -filterOffset To filterOffset
+                            kolor = bitmapa3.GetPixel(offsetX + filterX, offsetY + filterY)
+                            If kolor.R < nR Then nR = kolor.R
+                            If kolor.G < nG Then nG = kolor.G
+                            If kolor.B < nB Then nB = kolor.B
+                        Next
                     Next
+                    kolor = Color.FromArgb(nR, nG, nB)
+                    obrazek.SetPixel(offsetX, offsetY, kolor)
                 Next
-                kolor = Color.FromArgb(nR, nG, nB)
-                obrazek.SetPixel(offsetX, offsetY, kolor)
+                Form5.ProgressBar1.Value += 1
             Next
-            Form5.ProgressBar1.Value += 1
-        Next
+
+            Using gr As Graphics = Graphics.FromImage(obrazek)
+                Dim src_rect As New Rectangle(filterOffset, filterOffset, obrazek.Width - 2 * filterOffset, obrazek.Height - 2 * filterOffset)
+                Dim dst_rect As New Rectangle(0, 0, obrazek.Width, obrazek.Height)
+                gr.DrawImage(obrazek, dst_rect, src_rect, GraphicsUnit.Pixel)
+            End Using
+
+        Else
+            For offsetY As Integer = filterOffset To obrazek.Height - 1 - (filterOffset - 1)
+                For offsetX As Integer = filterOffset To obrazek.Width - 1 - (filterOffset - 1)
+                    nR = bitmapa3.GetPixel(offsetX, offsetY).R
+                    nG = bitmapa3.GetPixel(offsetX, offsetY).G
+                    nB = bitmapa3.GetPixel(offsetX, offsetY).B
+                    For filterY As Integer = -filterOffset To filterOffset - 1
+                        For filterX As Integer = -filterOffset To filterOffset - 1
+                            kolor = bitmapa3.GetPixel(offsetX + filterX, offsetY + filterY)
+                            If kolor.R < nR Then nR = kolor.R
+                            If kolor.G < nG Then nG = kolor.G
+                            If kolor.B < nB Then nB = kolor.B
+                        Next
+                    Next
+                    kolor = Color.FromArgb(nR, nG, nB)
+                    obrazek.SetPixel(offsetX, offsetY, kolor)
+                Next
+                Form5.ProgressBar1.Value += 1
+            Next
+
+            Using gr As Graphics = Graphics.FromImage(obrazek)
+                Dim src_rect As New Rectangle(filterOffset, filterOffset, obrazek.Width - ((2 * filterOffset) - 1), obrazek.Height - ((2 * filterOffset) - 1))
+                Dim dst_rect As New Rectangle(0, 0, obrazek.Width, obrazek.Height)
+                gr.DrawImage(obrazek, dst_rect, src_rect, GraphicsUnit.Pixel)
+            End Using
+        End If
+
         PictureBox1.Image = obrazek
         PictureBox1.Refresh()
         Form5.Close()
     End Sub
+
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         Try

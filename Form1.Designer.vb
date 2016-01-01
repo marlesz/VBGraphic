@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
@@ -30,6 +30,7 @@ Partial Class Form1
         Me.NarzędziaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.KompozycjaRGBToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button14 = New System.Windows.Forms.Button()
         Me.Button13 = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
         Me.Button11 = New System.Windows.Forms.Button()
@@ -51,7 +52,6 @@ Partial Class Form1
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
-        Me.Button14 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,7 +65,7 @@ Partial Class Form1
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(0)
-        Me.MenuStrip1.Size = New System.Drawing.Size(956, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(879, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -128,10 +128,22 @@ Partial Class Form1
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(95, 567)
+        Me.GroupBox1.Size = New System.Drawing.Size(95, 560)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Narzędzia"
+        '
+        'Button14
+        '
+        Me.Button14.BackColor = System.Drawing.Color.Transparent
+        Me.Button14.BackgroundImage = CType(resources.GetObject("Button14.BackgroundImage"), System.Drawing.Image)
+        Me.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button14.Location = New System.Drawing.Point(51, 258)
+        Me.Button14.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(33, 31)
+        Me.Button14.TabIndex = 17
+        Me.Button14.UseVisualStyleBackColor = False
         '
         'Button13
         '
@@ -241,7 +253,7 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(31, 530)
+        Me.Label3.Location = New System.Drawing.Point(31, 446)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(16, 17)
         Me.Label3.TabIndex = 7
@@ -250,7 +262,7 @@ Partial Class Form1
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(32, 514)
+        Me.Label4.Location = New System.Drawing.Point(32, 430)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(16, 17)
         Me.Label4.TabIndex = 6
@@ -259,7 +271,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(7, 530)
+        Me.Label2.Location = New System.Drawing.Point(7, 446)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(21, 17)
         Me.Label2.TabIndex = 5
@@ -268,7 +280,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(7, 514)
+        Me.Label1.Location = New System.Drawing.Point(7, 430)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(21, 17)
         Me.Label1.TabIndex = 4
@@ -324,48 +336,41 @@ Partial Class Form1
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.InitialImage = Nothing
+        Me.PictureBox1.Location = New System.Drawing.Point(4, 0)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.PictureBox1.Size = New System.Drawing.Size(861, 561)
+        Me.PictureBox1.Size = New System.Drawing.Size(783, 560)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
         '
         'Panel1
         '
-        Me.Panel1.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar
         Me.Panel1.AutoScroll = True
+        Me.Panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Panel1.BackColor = System.Drawing.Color.Transparent
         Me.Panel1.Controls.Add(Me.PictureBox1)
-        Me.Panel1.Location = New System.Drawing.Point(95, 30)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(861, 561)
+        Me.Panel1.Size = New System.Drawing.Size(879, 584)
         Me.Panel1.TabIndex = 3
-        '
-        'Button14
-        '
-        Me.Button14.BackColor = System.Drawing.Color.Black
-        Me.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button14.Location = New System.Drawing.Point(50, 258)
-        Me.Button14.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(33, 31)
-        Me.Button14.TabIndex = 17
-        Me.Button14.UseVisualStyleBackColor = False
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
-        Me.ClientSize = New System.Drawing.Size(956, 591)
+        Me.ClientSize = New System.Drawing.Size(879, 584)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.Panel1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MinimumSize = New System.Drawing.Size(95, 560)
         Me.Name = "Form1"
         Me.Text = "VBGraphic"
         Me.MenuStrip1.ResumeLayout(False)
